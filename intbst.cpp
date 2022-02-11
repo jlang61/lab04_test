@@ -79,9 +79,9 @@ void IntBST::printInOrder() const {
 }
 void IntBST::printInOrder(Node *n) const {
   if (n){
-    printPreOrder(n->left);
-    cout << n->info << " ";
-    printPreOrder(n->right);
+    printInOrder(n->left);
+    cout << n->info << " "; 
+    printInOrder(n->right);
   }
     // IMPLEMENT HERE
 }
@@ -93,9 +93,9 @@ void IntBST::printPostOrder() const {
 
 void IntBST::printPostOrder(Node *n) const {
   if (n){
-    printPreOrder(n->right);
+    printPostOrder(n->right);
     cout << n->info << " ";
-    printPreOrder(n->left);
+    printPostOrder(n->left);
   }
     // IMPLEMENT HERE
 }
