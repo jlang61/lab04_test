@@ -222,6 +222,10 @@ int IntBST::getSuccessor(int value) const{
 // deletes the Node containing the given value from the tree
 // returns true if the node exist and was deleted or false if the node does not exist
 bool IntBST::remove(int value){
+  return false;
+}
+
+  /*
   bool root_checker = false;
 
   if(!this->contains(value)) return false;
@@ -254,7 +258,12 @@ bool IntBST::remove(int value){
     delete n;
     return true;
   }
-  if(n == this->root){
+  
+
+   // REPLACE THIS NON-SOLUTION
+}
+/*
+if(n == this->root){
     cout << "root function called" << endl;
     if(getSuccessorNode(n->info)){
       n = getSuccessorNode(n->info);
@@ -281,6 +290,4 @@ bool IntBST::remove(int value){
 
   }
   delete delNode;
-
-   // REPLACE THIS NON-SOLUTION
-}
+  */
