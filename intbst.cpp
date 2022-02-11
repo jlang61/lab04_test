@@ -223,7 +223,7 @@ int IntBST::getSuccessor(int value) const{
 // returns true if the node exist and was deleted or false if the node does not exist
 bool IntBST::remove(int value){
   if(!this->contains(value)) return false;
-  if(this->root = this->getNodeFor(value, this->root)){ 
+  if((this->root = this->getNodeFor(value, this->root))){ 
     this->root = nullptr;
     return true;
   }
