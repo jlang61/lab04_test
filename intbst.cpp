@@ -262,6 +262,7 @@ bool IntBST::remove(int value){
 
    // REPLACE THIS NON-SOLUTION
 }
+*/
 /*
 if(n == this->root){
     cout << "root function called" << endl;
