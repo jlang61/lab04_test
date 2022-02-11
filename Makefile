@@ -1,15 +1,15 @@
 CXX_FLAG	=	--std=c++11
 
-all:	intbst	testbst
+all: testbst
 
-intbst.o:	instbst.h	intbst.cpp
-	g++	${CXX_FLAG}	-Wall	-c	instbst.h	intbst.cpp
+testbst: testbst.o intbst.o 
+  g++ ${CXX_FLAG} -o testbst testbst.o intbst.o
 
-testbst.o:	testbst.cpp	intbst.cpp	intbst.h	intbst.o
-	g++	${CXX_FLAG}	-Wall	-c	testbst.cpp	intbst.cpp	intbst.h
+testbst.o: testbst.cpp
+  g++ -c D${CXX_FLAG} testbst.cpp
 
-testbst:	testbst.o
-	g++	${CSS_FLAG}	-Wall	testbst.o	-o	testbsst
+intbst.o: intbst.cpp
+  g++ -c ${CXX_FLAG} intbst.cpp
 
 clean:
-	rm	intbst testbst
+	rm	intbst.o testbst.o
