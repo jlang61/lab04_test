@@ -93,9 +93,10 @@ void IntBST::printPostOrder() const {
 
 void IntBST::printPostOrder(Node *n) const {
   if (n){
+    printPostOrder(n->left);
     printPostOrder(n->right);
     cout << n->info << " ";
-    printPostOrder(n->left);
+    
   }
     // IMPLEMENT HERE
 }
@@ -221,6 +222,65 @@ int IntBST::getSuccessor(int value) const{
 // deletes the Node containing the given value from the tree
 // returns true if the node exist and was deleted or false if the node does not exist
 bool IntBST::remove(int value){
-  return false;
+  bool root_checker = false;
+
+  if(!this->contains(value)) return false;
+  
+  Node* n = new Node;
+  n = getNodeFor(value, this->root);
+  if(n->right && n-left){
+    n
+  }
+  else if(n->right || n->left){
+    if(n->info < n->parent->info){
+      if(n->right){
+        n->parent->left = n->right;
+      }
+      else{
+        n->parent->left = n->left;
+      }
+    }
+    else{
+      if(n->right){
+        n->parent->right = n->right;
+      }
+      else{
+        n->parent->right = n->left;
+      }
+    }
+    delete n;
+  }
+  else if((!n->right) && (!n->left)){
+    delete n;
+    return true;
+  }
+  if(n == this->root){
+    cout << "root function called" << endl;
+    if(getSuccessorNode(n->info)){
+      n = getSuccessorNode(n->info);
+      if(n!= this->root->right){
+        n->right = this->root->right
+      }
+    }
+  }
+  
+  if(getSuccessor(n->info) != 0){
+    n = getSuccessorNode(n->info);
+  }else{
+    n = getPredecessorNode(n->info);
+  }
+  if(root_checker){
+    if(n != this->root->right){
+      n->right = this->root->right;
+    }
+    if(n != this->root->left){
+      n->left = this->root->left;
+    }
+
+    this->root = n;
+
+  }
+  delete delNode;
+
    // REPLACE THIS NON-SOLUTION
 }
