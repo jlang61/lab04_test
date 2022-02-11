@@ -222,39 +222,46 @@ int IntBST::getSuccessor(int value) const{
 // deletes the Node containing the given value from the tree
 // returns true if the node exist and was deleted or false if the node does not exist
 bool IntBST::remove(int value){
-  return false;
-}
-
-  /*
-  bool root_checker = false;
-
   if(!this->contains(value)) return false;
   
   Node* n = new Node;
   n = getNodeFor(value, this->root);
-  if(n->right && n-left){
-    n
+  int val = 0;
+  if(n->right && n->left){
+    Node* t = getSuccessorNode(n->info);
+    val = t->info;
+    remove(t->info);
+    n->info = val;
+    return true;
   }
   else if(n->right || n->left){
-    if(n->info < n->parent->info){
-      if(n->right){
+    Node* t = n;
+    if(n->right){
+      if(n->parent->right){
+        n->parent->right = n->right;
+      }
+      else{
         n->parent->left = n->right;
+      }
+    }
+    else{
+      if(n->parent->right){
+        n->parent->right = n->left;
       }
       else{
         n->parent->left = n->left;
       }
     }
-    else{
-      if(n->right){
-        n->parent->right = n->right;
-      }
-      else{
-        n->parent->right = n->left;
-      }
-    }
-    delete n;
+    delete t;
+    return true;
   }
-  else if((!n->right) && (!n->left)){
+  else if((n->right == NULL) && (n->left == NULL)){
+    if(n->parent->left){
+      n->parent->left = nullptr;
+    }
+    else{
+      n->parent->right = nullptr;
+    }
     delete n;
     return true;
   }
@@ -262,7 +269,7 @@ bool IntBST::remove(int value){
 
    // REPLACE THIS NON-SOLUTION
 }
-*/
+
 /*
 if(n == this->root){
     cout << "root function called" << endl;
